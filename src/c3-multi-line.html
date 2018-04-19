@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>C3 Multi-Line</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="c3.min.css" />
+        <script src="//d3js.org/d3.v4.min.js"></script>
+        <script src="c3.min.js"></script>
+    </head>
+    <body>
+        <div id="chart"></div>
+        <script>
+            var chart = c3.generate({
+                bindto: '#chart',
+                data: {
+                    url: 'facility.csv',
+                    x: 'Week'
+                },
+                size: {
+                    width: 1200,
+                    height: 800
+                },
+                padding: {
+                    top: 20,
+                    right: 40,
+                    bottom: 20,
+                    left: 60
+                },
+                axis: {
+                    x: {
+                        label: {
+                            text: 'Week of Reply Dt',
+                            position: 'outer-center'
+                        }
+                    },
+                    y: {
+                        label: {
+                            text: 'Count of Number of Records',
+                            position: 'outer-middle'
+                        }
+                    }
+                },
+                point: {
+                    show: false
+                },
+                title: {
+                    text: '2017 Run Rates by Facility Week over Week'
+                },
+                tooltip: {
+                    format: {
+                        title: function(x) { return 'Week ' + x; }
+                    }
+                },
+                color: {
+                    pattern: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf", "#ffcc00", "#0000ff", "#00ff00"]
+                }
+            });
+        </script>
+    </body>
+</html>
